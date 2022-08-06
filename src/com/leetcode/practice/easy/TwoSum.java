@@ -22,9 +22,12 @@ public class TwoSum {
 	public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> numToIndex = new HashMap<>();
         for (int i=0 ; i < nums.length; i++) {
+        	// check if i'th num has a counterpart in map already and return both's indices
             if((numToIndex.get(target - nums[i]) != null) && (numToIndex.get(target - nums[i]) != i)) {
                 return new int[] {i, numToIndex.get(target - nums[i])};
             }
+            
+    		// mapping number to its indices
             numToIndex.put(nums[i], i);
         }
         return null;
